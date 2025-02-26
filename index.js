@@ -1,5 +1,5 @@
 import { v4 } from 'uuid';
-
+import isEmail from 'validator/lib/isEmail.js';
 
 function generateUniqueID(firstName, lastName) {
     var id = "";
@@ -17,4 +17,22 @@ function generateUniqueID(firstName, lastName) {
     return id;
 }
 
-console.log(generateUniqueID("Frederick", "Sindayen"));
+
+function addAccount(firstName, lastName, email, age) {
+
+    // check if all fields are present
+    if (firstName === undefined || lastName === undefined || email === null || age === null) {
+        return false;
+    }
+
+    // validate email format
+    if (!isEmail(email)) {
+        return false;
+    }
+
+
+
+    return true;
+}
+
+console.log(addAccount("Frederick", "Sindayen", "fdsindayen@up.edu.ph"))
